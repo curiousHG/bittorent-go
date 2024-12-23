@@ -9,5 +9,5 @@
 - [x] Support multiple peers
 - [x] Support multiple pieces
 
-<!-- embed a link to a text -->
+### References:
 ["Inspired" from here]: https://blog.jse.li/posts/torrent/
