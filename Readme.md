@@ -10,4 +10,4 @@
 - [x] Support multiple pieces
 
 ### References:
-["Inspired" from here]: https://blog.jse.li/posts/torrent/
+["Inspired" from here](https://blog.jse.li/posts/torrent/)
