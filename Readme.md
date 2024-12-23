@@ -9,7 +9,5 @@
 - [x] Support multiple peers
 - [x] Support multiple pieces
 
-### "Inspired" from [![here](https://blog.jse.li/posts/torrent/)]
-
 <!-- embed a link to a text -->
-[![here](https://blog.jse.li/posts/torrent/)]
+["Inspired" from here]: https://blog.jse.li/posts/torrent/
