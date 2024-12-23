@@ -8,4 +8,8 @@
 - [x] Download a file from a torrent file
 - [x] Support multiple peers
 - [x] Support multiple pieces
+
 ### "Inspired" from [![here](https://blog.jse.li/posts/torrent/)]
+
+<!-- embed a link to a text -->
+[![here](https://blog.jse.li/posts/torrent/)]
