@@ -1,45 +1,31 @@
 package main
 
 import (
-	"encoding/binary"
-	"fmt"
-	"io"
-	"net"
-	"net/url"
-	"strconv"
-
-
+	"log"
+	"os"
+	"github.com/curiousHG/bittorrent-go/torrentfile"
 )
 
-func (bto bencodeTorrent) toTorrentFile() (TorrentFile, error) {
-	file := TorrentFile{}
-	return file,nil
-}
 
-func (t *TorrentFile) buildTrackerurl (peerID [20]byte, port uint16) (string, error){
-	base, err := url.Parse(t.Announce)
 
+
+func main() {
+	
+	inPath := os.Args[1]
+	outPath := os.Args[2]
+
+	tf, err := torrentfile.Open(inPath)
 	if err != nil {
-		return "", err
+		log.Fatal(err)
 	}
 
-	params := url.Values {
-		"info_hash" : []string{string(t.InfoHash[:])},
-		"peer_id":    []string{string(peerID[:])},
-        "port":       []string{strconv.Itoa(int(port))},
-        "uploaded":   []string{"0"},
-        "downloaded": []string{"0"},
-        "compact":    []string{"1"},
-        "left":       []string{strconv.Itoa(t.Length)},
+	err = tf.DownloadToFile(outPath)
+	if err != nil {
+		log.Fatal(err)
 	}
-
-	base.RawQuery = params.Encode()
-	return base.String(), nil
 }
 
 
 
-conn, err := net.Dial("tcp", peer.String, 3*time.Second)
-if err != nil {
-	return nil, err
-}
+
+

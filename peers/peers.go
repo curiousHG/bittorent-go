@@ -1,10 +1,11 @@
 package peers
 
 import (
-	"net"
-	"fmt"
 	"encoding/binary"
+	"fmt"
+	"net"
 	"strconv"
+	"time"
 )
 
 type Peer struct {
@@ -31,4 +32,11 @@ func Unmarshal(peersBin []byte) ([]Peer, error){
 
 func (p Peer) String() string {
 	return net.JoinHostPort(p.IP.String(), strconv.Itoa(int(p.Port)))
+}
+func connectToPeer(peer Peer) (net.Conn, error) {
+	conn, err := net.DialTimeout("tcp", peer.String(), 3*time.Second)
+	if err != nil {
+		return nil, err
+	}
+	return conn, nil
 }
